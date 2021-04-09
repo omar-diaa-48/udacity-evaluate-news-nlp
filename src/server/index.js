@@ -4,6 +4,7 @@ const cors = require('cors');
 const FormData = require('form-data');
 const fetch = require('node-fetch')
 const dotenv = require('dotenv');
+const { response } = require('express');
 
 const app = express();
 dotenv.config();
@@ -14,24 +15,21 @@ app.use(express.urlencoded({extended:true}));
 
 app.post('/', (req,res)=>{
 
-    const form_data = new FormData();
+    const formdata = new FormData();
   
-    form_data.append("lang", "en");
-    form_data.append("txt", req.body.nlpTxt);
-    form_data.append("key", `${process.env.API_KEY}`);
-  
+    formdata.append("lang", "en");
+    formdata.append("txt", req.body.nlpTxt);
+    formdata.append("key", `${process.env.API_KEY}`);
+
     const requestOptions = {
         method: 'POST',
-        body: form_data,
+        body: formdata,
         redirect: 'follow'
     };
 
    fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
-        .then(response => obj = {
-            status :  response.status,
-            body : response.json()
-        })
-        .then(obj => res.send(obj.body))
+        .then(response => response.json())
+        .then(response => res.send(response))
         .catch(error => console.log('error', error));
 })
 

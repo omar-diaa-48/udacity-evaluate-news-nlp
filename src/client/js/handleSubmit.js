@@ -16,8 +16,17 @@ function handleSubmit(event) {
             body:JSON.stringify({nlpTxt:nlpText})
         })
             .then(res => res.json())
-            .then(res => console.log(res))
-            .then(res => nlpResult.innerHTML = res)
+            .then(res => {
+                console.log(res.sentimented_entity_list);
+                return res;
+            })
+            .then(res => {
+                let result = '';
+                for (const item of res.sentimented_entity_list) {
+                    result += `Word ${item.form} is a ${item.type.split('>').pop()}\n`;
+                }
+                nlpResult.innerHTML = result;
+            })
             .catch(err => console.log(err));
 }
 
