@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title> 
+    <script src="../js/handleSubmit.js"></script>
+</head>
+    <body>
+        <header>
+            <div>
+                <img class="logo" src="../../../images/nlp.png" alt="">
+            </div>
+        </header>
+
+        <main>
+            <div class="main">
+                <div class="form">
+                    <form onsubmit="handleSubmit(event)">
+                        <textarea placeholder="Enter you text here" name="nlpTxt" id="nlpTxt" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="result">
+                    <textarea placeholder="Result will be shown here" name="nlpResult" id="nlpResult" cols="30" rows="10" readonly></textarea>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div>
+                <p>
+                    This Project is made for natural language processing
+                </p>
+                <p>
+                    Made by. Omar Diaaeldine
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

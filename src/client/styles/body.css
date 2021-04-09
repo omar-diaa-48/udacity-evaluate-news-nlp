@@ -1,0 +1,39 @@
+
+body{
+    display: flex; 
+    flex-direction: column;
+}
+
+header, footer{
+    min-width: 100vw;
+    background-color: #29bb89;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.form,.result{
+    flex-basis: 25%;
+}
+
+textarea{
+    resize: none;
+}
+
+img{
+    max-width: 200px;
+}
+
+p{
+    text-align: center;
+}
