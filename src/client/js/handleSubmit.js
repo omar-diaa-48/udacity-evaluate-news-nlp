@@ -9,8 +9,9 @@ function handleSubmit(event) {
         nlpResult.innerHTML = "Invalid submit"    
     }
 
-    fetch('http://localhost:8055/')
-            .then(res => nlpResult.textContent = res)
+    fetch("http://localhost:8055?txt="+nlpText)
+            .then(res => res.text())
+            .then(res => nlpResult.innerHTML = res)
             .catch(err => console.log(err));
 
     // fetch('http://localhost:8055/', { method:'POST' , body:JSON.stringify({nlpTxt:nlpText}) , headers:{"content-type":"application/json"} })
@@ -19,4 +20,4 @@ function handleSubmit(event) {
     //     .catch((err) => console.log(err));
 }
 
-export {handleSubmit}
+// export {handleSubmit}
