@@ -9,15 +9,16 @@ function handleSubmit(event) {
         nlpResult.innerHTML = "Invalid submit"    
     }
 
-    fetch("http://localhost:8055?txt="+nlpText)
-            .then(res => res.text())
+    fetch("http://localhost:8055/", 
+        {   
+            method:'POST', 
+            headers:{"content-type":"application/json"}, 
+            body:JSON.stringify({nlpTxt:nlpText})
+        })
+            .then(res => res.json())
+            .then(res => console.log(res))
             .then(res => nlpResult.innerHTML = res)
             .catch(err => console.log(err));
-
-    // fetch('http://localhost:8055/', { method:'POST' , body:JSON.stringify({nlpTxt:nlpText}) , headers:{"content-type":"application/json"} })
-    //     .then((response) => response.json())
-    //     .then(response => nlpResult.textContent = String(response.reverse))
-    //     .catch((err) => console.log(err));
 }
 
 // export {handleSubmit}
