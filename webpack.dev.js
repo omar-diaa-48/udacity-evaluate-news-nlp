@@ -6,13 +6,14 @@ const path = require('path');
 
 module.exports = {
     entry: './src/client/index.js',
+    target : 'node',
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.min.js',
         library: 'Client',
-        libraryTarget: 'umd',
-        globalObject:'this',
-        umdNamedDefine: true,
+        libraryTarget: 'var',
+        //globalObject:'this',
+       //umdNamedDefine: true,
     },
     mode: 'development',
     devtool: 'source-map',
