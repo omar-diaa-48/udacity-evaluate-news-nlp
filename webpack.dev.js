@@ -11,8 +11,8 @@ module.exports = {
         filename: 'bundle.min.js',
         library: 'Client',
         libraryTarget: 'umd',
+        globalObject:'this',
         umdNamedDefine: true,
-        libraryExport:'Client'
     },
     mode: 'development',
     devtool: 'source-map',
