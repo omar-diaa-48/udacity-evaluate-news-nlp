@@ -1,6 +1,4 @@
-function handleSubmit(event) {
-    event.preventDefault()
-
+function handleSubmit() {
     const nlpText = document.querySelector('#nlpTxt').value;
     let nlpResult = document.querySelector('#nlpResult');
 

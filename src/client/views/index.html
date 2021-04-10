@@ -15,7 +15,8 @@
         <main>
             <div class="main">
                 <div class="form">
-                    <form onsubmit="handleSubmit(event)">
+                    <!-- onsubmit="return Client.handleSubmit(event)" -->
+                    <form id="form">
                         <textarea placeholder="Enter you text here" name="nlpTxt" id="nlpTxt" cols="30" rows="10"></textarea>
                         <input type="submit" value="Submit">
                     </form>
@@ -36,5 +37,12 @@
                 </p>
             </div>
         </footer>
+        <script>
+            document.querySelector('#form').addEventListener('submit', event => {
+                event.preventDefault();
+                console.log('Hi');
+                Client.handleSubmit();
+            })
+        </script>
     </body>
 </html>

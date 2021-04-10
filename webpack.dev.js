@@ -9,8 +9,10 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.min.js',
-        libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
+        libraryExport:'Client'
     },
     mode: 'development',
     devtool: 'source-map',
