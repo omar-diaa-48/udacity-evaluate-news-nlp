@@ -11,7 +11,12 @@ dotenv.config();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('dist'));
 app.use(express.urlencoded({extended:true}));
+
+app.get('/' , (req,res) => {
+    res.sendFile('dist/index.html')
+})
 
 app.post('/', (req,res)=>{
 

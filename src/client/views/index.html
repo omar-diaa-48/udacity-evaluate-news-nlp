@@ -25,6 +25,10 @@
                     <textarea placeholder="Result will be shown here" name="nlpResult" id="nlpResult" cols="30" rows="10" readonly></textarea>
                 </div>
             </div>
+            <div>
+                <p id="resultDetails">
+                </p>              
+            </div>
         </main>
 
         <footer>
@@ -42,6 +46,12 @@
                 event.preventDefault();
                 Client.handleSubmit();
             })
+
+            if('serviceWorker' in navigator){
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                })
+            }
         </script>
     </body>
 </html>
